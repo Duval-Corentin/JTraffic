@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Rectangle fx:id="cityLille" arcHeight="10.0" arcWidth="10.0" fill="#0baee4" height="120.0" layoutX="80.0" layoutY="57.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f80000" height="50.0" layoutX="180.0" layoutY="307.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f80000" height="50.0" layoutX="356.0" layoutY="216.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f80000" height="50.0" layoutX="524.0" layoutY="504.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f80000" height="50.0" layoutX="807.0" layoutY="307.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Text layoutX="143.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lille">
+               <font>
+                  <Font name="AnjaliOldLipi" size="41.0" />
+               </font>
+            </Text>
+            <Rectangle fx:id="cityAix" arcHeight="10.0" arcWidth="10.0" fill="#00ff1d" height="120.0" layoutX="559.0" layoutY="57.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+            <Text layoutX="630.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aix">
+               <font>
+                  <Font name="AnjaliOldLipi" size="41.0" />
+               </font>
+            </Text>
+            <Rectangle fx:id="cityRabat" arcHeight="10.0" arcWidth="10.0" fill="#3701f8" height="120.0" layoutX="117.0" layoutY="469.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+            <Text layoutX="162.0" layoutY="544.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rabat">
+               <font>
+                  <Font name="AnjaliOldLipi" size="41.0" />
+               </font>
+            </Text>
+            <Rectangle fx:id="cityRennes" arcHeight="10.0" arcWidth="10.0" fill="#f8cf02" height="120.0" layoutX="474.0" layoutY="290.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+            <Text layoutX="503.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rennes">
+               <font>
+                  <Font name="AnjaliOldLipi" size="41.0" />
+               </font>
+            </Text>
+            <Rectangle fx:id="cityBrest" arcHeight="10.0" arcWidth="10.0" fill="#ff1fc9" height="120.0" layoutX="937.0" layoutY="156.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+            <Text layoutX="989.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brest">
+               <font>
+                  <Font name="AnjaliOldLipi" size="41.0" />
+               </font>
+            </Text>
+            <Rectangle fx:id="cityToulon" arcHeight="10.0" arcWidth="10.0" fill="#d1ff1f" height="120.0" layoutX="874.0" layoutY="488.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+            <Text layoutX="911.0" layoutY="563.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Toulon">
+               <font>
+                  <Font name="AnjaliOldLipi" size="41.0" />
+               </font>
+            </Text>
+      </children>
+         <effect>
+            <Blend />
+         </effect>
+    </AnchorPane>
+  </children>
+</VBox>

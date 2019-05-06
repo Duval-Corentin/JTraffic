@@ -1,4 +1,4 @@
-package Car;
+package sample.Car;
 
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.GraphicsContext;
@@ -59,10 +59,8 @@ public class Car {
         this.minPosY = minPosY;
         this.maxPosX = maxPosX;
         this.maxPosY = maxPosY;
-        this.direction = ((double)maxPosY-(double)minPosY)/((double)maxPosX-(double)minPosX);
+        this.direction = (maxPosY - minPosY) / (maxPosX - minPosX);
         this.indice = i;
-
-        //System.out.println(this.direction);
 
         this.maxSpeed = maxSpeed;
         this.accel = accel;

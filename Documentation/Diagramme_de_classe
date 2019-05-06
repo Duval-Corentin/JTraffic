@@ -36,7 +36,7 @@
         <UML:DataType name="wchar_t" isLeaf="false" namespace="Datatypes" visibility="public" isSpecification="false" xmi.id="uOyLa7rWGGN4N" isAbstract="false" isRoot="false"/>
        </UML:Namespace.ownedElement>
       </UML:Package>
-      <UML:Class name="Car" isLeaf="false" namespace="Logical_View" visibility="public" isSpecification="false" xmi.id="unMne6K6Lorkp" isAbstract="false" isRoot="false">
+      <UML:Class name="sample.Car" isLeaf="false" namespace="Logical_View" visibility="public" isSpecification="false" xmi.id="unMne6K6Lorkp" isAbstract="false" isRoot="false">
        <UML:Classifier.feature>
         <UML:Attribute name="currentSpeed" visibility="private" isSpecification="false" xmi.id="uosQQGUJXCshy" type="uywj0tYY8EBUd"/>
         <UML:Operation name="updateSpeed" isLeaf="false" visibility="public" isSpecification="false" xmi.id="ukF4lhLbHTxKY" isOverride="false" isAbstract="false" isRoot="false" isQuery="false"/>

@@ -22,7 +22,7 @@ public class Main extends Application {
         primaryStage.setScene( new Scene(this.root));
         primaryStage.show();
 
-        City Lille = new City(this.root, 600, 600, "Lille");
+        City Lille = new City(this.root, 600, 600, "Lille", "test");
     }
 
     public static void main(String[] args) {

@@ -2,32 +2,53 @@ package sample.Hub.City;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import sample.Hub.Hub;
 import javafx.scene.shape.*;
 
 
 public class City extends Hub {
 
-    private static int width = 200;
-    private static int height = 100;
+    private static double width = 200;
+    private static double height = 100;
+    private static double fontSize = 30;
+    private static double arcWidth = 20;
 
-    private Rectangle rect;
+    private Text nameText;
 
-    private Pane root;
+    public City(final Pane root, final double xPos, final double yPos, final String name, final Color color) {
 
-    public City(final Pane root, final int xPos, final int yPos, final String name, final String color) {
+        super(root, xPos, yPos);
 
-        this.root = root;
+        this.rect.setX(xPos - width/2);
+        this.rect.setY(yPos - height/2);
+        this.rect.setWidth(width);
+        this.rect.setHeight(height);
+        this.rect.setArcWidth(arcWidth);
+        this.rect.setArcHeight(arcWidth);
+        this.rect.setFill(color);
 
-        rect = new Rectangle();
-        rect.setX(xPos);
-        rect.setY(yPos);
-        rect.setWidth(width);
-        rect.setHeight(height);
-        rect.setArcWidth(20);
-        rect.setArcHeight(20);
-        rect.setFill(Color.RED);
+        this.nameText = new Text();
+        this.nameText.setFont(new Font(fontSize));
+        this.nameText.setText(name);
+        this.nameText.setX(xPos - width/2);
+        this.nameText.setY(yPos + fontSize/2);
+        this.nameText.setTextAlignment(TextAlignment.CENTER);
+        this.nameText.setWrappingWidth(width);
+
 
         this.root.getChildren().add(this.rect);
+        this.root.getChildren().add(this.nameText);
+
+    }
+
+    public double getXPos() {
+        return this.xPos;
+    }
+
+    public double getYPos() {
+        return this.yPos;
     }
 }

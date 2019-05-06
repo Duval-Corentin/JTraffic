@@ -1,7 +1,6 @@
 package Car;
 
 import javafx.geometry.Point2D;
-import javafx.geometry.Pos;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -43,10 +42,10 @@ public class Car {
     public Car(int i,
                double speedLimit,
                double currentSpeed,
-               Integer minPosX,
-               Integer minPosY,
-               Integer maxPosX,
-               Integer maxPosY,
+               double minPosX,
+               double minPosY,
+               double maxPosX,
+               double maxPosY,
                double maxSpeed,
                double accel,
                double deccel,

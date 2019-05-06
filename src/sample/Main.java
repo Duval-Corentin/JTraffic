@@ -3,12 +3,14 @@ package sample;
 import Car.Car;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.scene.Node;
-import javafx.scene.Parent;
+
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import sample.Hub.City.City;
+
+import java.util.Vector;
 
 
 public class Main extends Application {
@@ -17,8 +19,9 @@ public class Main extends Application {
     private double t = 0.0;
     private double timeWarp = 0.1; // 100 millisec
 
+    private Vector<City> citys = new Vector<>();
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         primaryStage.setTitle("J Traffic");
 
 
@@ -27,9 +30,12 @@ public class Main extends Application {
         primaryStage.setScene( new Scene(this.root));
         primaryStage.show();
 
-        Car papaMobile = new Car(0,15,4,10,10,1580,880,
-                50,2,3,5,this.root);
+        this.citys.add(new City(this.root, 200, 200, "ville 01", Color.MEDIUMPURPLE));
+        this.citys.add(new City(this.root, 400, 400, "ville 02", Color.MAGENTA));
+        this.citys.add(new City(this.root, 700, 400, "ville 03", Color.BEIGE));
 
+        Car papaMobile = new Car(0,15,4, this.citys.get(0).getXPos() ,this.citys.get(0).getYPos(),this.citys.get(1).getXPos(),this.citys.get(1).getYPos(),
+                50,2,3,5,this.root);
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
@@ -39,8 +45,6 @@ public class Main extends Application {
             }
         };
         timer.start();
-
-        City Lille = new City(this.root, 600, 600, "Lille", "boite");
     }
 
     public static void main(String[] args) {

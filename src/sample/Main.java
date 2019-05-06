@@ -27,9 +27,6 @@ public class Main extends Application {
         primaryStage.setScene( new Scene(this.root));
         primaryStage.show();
 
-<<<<<<< HEAD
-        City Lille = new City(this.root, 600, 600, "Lille", "test");
-=======
         Car papaMobile = new Car(0,15,4,10,10,1580,880,
                 50,2,3,5,this.root);
 
@@ -44,7 +41,6 @@ public class Main extends Application {
         timer.start();
 
         City Lille = new City(this.root, 600, 600, "Lille", "boite");
->>>>>>> 7d644aa9ce4f1d6db8f55cf7bd69beec6f6377d9
     }
 
     public static void main(String[] args) {

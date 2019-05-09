@@ -74,33 +74,82 @@ public class Main extends Application {
         this.crossings.add(Stop02);
         this.crossings.add(Stop03);
 
-        Road roads01 = new Road(this.backPane);
-        Toulon.addOutRoad(roads01);
-        Lille.addInRoad(roads01);
+        Road road01 = new Road(this.backPane);
+        Toulon.addOutRoad(road01);
+        Lille.addInRoad(road01);
 
-        Road roads02 = new Road(this.backPane);
-        Nantes.addOutRoad(roads02);
-        Toulon.addInRoad(roads02);
+        Road road02 = new Road(this.backPane);
+        Nantes.addOutRoad(road02);
+        Toulon.addInRoad(road02);
 
-        Road roads03 = new Road(this.backPane);
-        RP01.addOutRoad(roads03);
-        Lille.addInRoad(roads03);
+        Road road03 = new Road(this.backPane);
+        RP01.addOutRoad(road03);
+        Lille.addInRoad(road03);
 
-        Road roads04 = new Road(this.backPane);
-        RP01.addOutRoad(roads04);
-        Nantes.addInRoad(roads04);
+        Road road04 = new Road(this.backPane);
+        RP01.addOutRoad(road04);
+        Nantes.addInRoad(road04);
 
-        Road roads05 = new Road(this.backPane);
-        RP01.addOutRoad(roads05);
-        Toulon.addInRoad(roads05);
+        Road road05 = new Road(this.backPane);
+        RP01.addOutRoad(road05);
+        Toulon.addInRoad(road05);
 
-        Road roads06 = new Road(this.backPane);
-        RP01.addOutRoad(roads06);
-        Stop01.addInRoad(roads06);
+        Road road06 = new Road(this.backPane);
+        RP01.addOutRoad(road06);
+        Stop01.addInRoad(road06);
 
-        Road roads07 = new Road(this.backPane);
-        Nantes.addOutRoad(roads07);
-        Stop02.addInRoad(roads07);
+        Road road07 = new Road(this.backPane);
+        Nantes.addOutRoad(road07);
+        Stop02.addInRoad(road07);
+
+        Road road08 = new Road(this.backPane);
+        Lille.addOutRoad(road08);
+        Stop01.addInRoad(road08);
+
+        Road road09 = new Road(this.backPane);
+        Nantes.addOutRoad(road09);
+        Stop01.addInRoad(road09);
+
+        Road road10 = new Road(this.backPane);
+        Stop01.addOutRoad(road10);
+        Stop02.addInRoad(road10);
+
+        Road road11 = new Road(this.backPane);
+        Stop02.addOutRoad(road11);
+        Stop03.addInRoad(road11);
+
+        Road road12 = new Road(this.backPane);
+        Stop02.addOutRoad(road12);
+        Nimes.addInRoad(road12);
+
+        Road road13 = new Road(this.backPane);
+        Rabat.addOutRoad(road13);
+        Stop03.addInRoad(road13);
+
+        Road road14 = new Road(this.backPane);
+        Stop03.addOutRoad(road14);
+        Stop01.addInRoad(road14);
+
+        Road road15 = new Road(this.backPane);
+        Nantes.addOutRoad(road15);
+        Nimes.addInRoad(road15);
+
+        Road road16 = new Road(this.backPane);
+        Brest.addOutRoad(road16);
+        Rabat.addInRoad(road16);
+
+        Road road17 = new Road(this.backPane);
+        Brest.addOutRoad(road17);
+        Stop02.addInRoad(road17);
+
+        Road road18 = new Road(this.backPane);
+        Brest.addOutRoad(road18);
+        Stop03.addInRoad(road18);
+
+        Road road19 = new Road(this.backPane);
+        Toulon.addOutRoad(road19);
+        Nimes.addInRoad(road19);
+
 
         AnimationTimer timer = new AnimationTimer() {
             @Override

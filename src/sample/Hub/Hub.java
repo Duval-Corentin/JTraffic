@@ -14,9 +14,7 @@ public class Hub {
 
     protected Pane root;
 
-    private Vector<Road> inRoad = new Vector<>();
-
-    private Vector<Road> outRoad = new Vector<>();
+    private Vector<Road> roads = new Vector<>();
 
     public Hub(final Pane root, final double xPos, final double yPos) {
         this.root = root;
@@ -36,19 +34,15 @@ public class Hub {
 
     public void addInRoad(final Road road) {
         road.setStart(this.getXPos(), this.getYPos());
-        this.inRoad.add(road);
+        this.roads.add(road);
     }
 
-    public void removeInRoad(final Road road) {
-        this.inRoad.remove(road);
+    public void removeRoad(final Road road) {
+        this.roads.remove(road);
     }
 
     public void addOutRoad(final Road road) {
         road.setEnd(this.getXPos(), this.getYPos());
-        this.outRoad.add(road);
-    }
-
-    public void removeOutRoad(final Road road) {
-        this.outRoad.remove(road);
+        this.roads.add(road);
     }
 }

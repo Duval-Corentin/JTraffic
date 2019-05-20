@@ -233,21 +233,38 @@ public class Car {
     }
 
 
+    private double speed(double t){
+
+        double accel = 0.01;
+        double deccel = 0.12;
+
+        if(this.getCarProgression()<0.90){
+            if(this.getCurrentSpeed()+ accel< this.getMaxSpeed()){
+                this.setCurrentSpeed(this.getCurrentSpeed()+accel);
+            }else{
+                this.setCurrentSpeed(this.getMaxSpeed());
+            }
+        }
+
+        return  this.getCurrentSpeed();
+    }
+
     private Point2D carPosition(double t){
-        double u = this.getMinPosX();
-        double v = this.getMinPosY();
+        double timeWarp = 0.1;
         double coeff = this.getDirection();
-        double carSpeed = this.getMaxSpeed();
 
-        double speedLimit = this.getSpeedLimit();
-        if(speedLimit<carSpeed) carSpeed = speedLimit;
+        this.setCurrentSpeed(speed(t));
+        if(t>0.0) {
+            if(signum(this.maxPosX - this.minPosX) >0 ){
+                this.setCurrentPos(this.getCurrentPosX() +  timeWarp * this.currentSpeed
+                        , this.getCurrentPosY() +  timeWarp * this.currentSpeed * coeff);
+            }else{
+                this.setCurrentPos(this.getCurrentPosX()
+                        , this.getCurrentPosY() + signum(this.maxPosY - this.minPosY) * timeWarp * this.currentSpeed * coeff);
+            }
 
-        this.setCurrentPos(signum(this.maxPosX-this.minPosX) * currentSpeed * t*smoother(t) + u,
-                signum(this.maxPosY-this.minPosY)* currentSpeed * coeff * t * smoother(t) + v);
-
-
-
-        return new Point2D(this.getCurrentPosX(),this.getCurrentPosY());//.multiply(20);
+        }
+        return new Point2D(this.getCurrentPosX(),this.getCurrentPosY());
     }
 
 

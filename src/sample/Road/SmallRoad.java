@@ -11,9 +11,9 @@ public class SmallRoad extends Road {
 
         this.backgroundLine.setStrokeWidth(this.backgroundLineStrokeWidth);
 
-        Lane lane01 = new Lane(this.root);
+        Lane lane01 = new Lane(this.root,9);
 
-        Lane lane02 = new Lane(this.root);
+        Lane lane02 = new Lane(this.root,9);
 
         this.startToEndLanes.add(lane01);
         this.endToStartLanes.add(lane02);

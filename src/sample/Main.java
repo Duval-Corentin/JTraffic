@@ -14,10 +14,7 @@ import sample.Hub.City.City;
 import sample.Hub.Crossing.RightPriority;
 import sample.Hub.Crossing.Stop;
 import sample.Hub.Hub;
-import sample.Road.BigRoad;
-import sample.Road.MediumRoad;
-import sample.Road.Road;
-import sample.Road.SmallRoad;
+import sample.Road.*;
 
 import java.util.Vector;
 
@@ -74,79 +71,79 @@ public class Main extends Application {
         this.hubs.add(Stop02);
         this.hubs.add(Stop03);
 
-        SmallRoad road01 = new SmallRoad(this.backPane);
+        Lane road01 = new Lane(this.backPane);
         Toulon.addOutRoad(road01);
         Lille.addInRoad(road01);
 
-        SmallRoad road02 = new SmallRoad(this.backPane);
+        Lane road02 = new Lane(this.backPane);
         Nantes.addOutRoad(road02);
         Toulon.addInRoad(road02);
 
-        SmallRoad road03 = new SmallRoad(this.backPane);
+        Lane road03 = new Lane(this.backPane);
         RP01.addOutRoad(road03);
         Lille.addInRoad(road03);
 
-        BigRoad road04 = new BigRoad(this.backPane);
+        Lane road04 = new Lane(this.backPane);
         RP01.addOutRoad(road04);
         Nantes.addInRoad(road04);
 
-        MediumRoad road05 = new MediumRoad(this.backPane);
+        Lane road05 = new Lane(this.backPane);
         RP01.addOutRoad(road05);
         Toulon.addInRoad(road05);
 
-        MediumRoad road06 = new MediumRoad(this.backPane);
+        Lane road06 = new Lane(this.backPane);
         RP01.addOutRoad(road06);
         Stop01.addInRoad(road06);
 
-        SmallRoad road07 = new SmallRoad(this.backPane);
+        Lane road07 = new Lane(this.backPane);
         Nantes.addOutRoad(road07);
         Stop02.addInRoad(road07);
 
-        BigRoad road08 = new BigRoad(this.backPane);
+        Lane road08 = new Lane(this.backPane);
         Lille.addOutRoad(road08);
         Stop01.addInRoad(road08);
 
-        MediumRoad road09 = new MediumRoad(this.backPane);
+        Lane road09 = new Lane(this.backPane);
         Nantes.addOutRoad(road09);
         Stop01.addInRoad(road09);
 
-        SmallRoad road10 = new SmallRoad(this.backPane);
+        Lane road10 = new Lane(this.backPane);
         Stop01.addOutRoad(road10);
         Stop02.addInRoad(road10);
 
-        SmallRoad road11 = new SmallRoad(this.backPane);
+        Lane road11 = new Lane(this.backPane);
         Stop02.addOutRoad(road11);
         Stop03.addInRoad(road11);
 
-        BigRoad road12 = new BigRoad(this.backPane);
+        Lane road12 = new Lane(this.backPane);
         Stop02.addOutRoad(road12);
         Nimes.addInRoad(road12);
 
-        BigRoad road13 = new BigRoad(this.backPane);
+        Lane road13 = new Lane(this.backPane);
         Rabat.addOutRoad(road13);
         Stop03.addInRoad(road13);
 
-        SmallRoad road14 = new SmallRoad(this.backPane);
+        Lane road14 = new Lane(this.backPane);
         Stop03.addOutRoad(road14);
         Stop01.addInRoad(road14);
 
-        MediumRoad road15 = new MediumRoad(this.backPane);
+        Lane road15 = new Lane(this.backPane);
         Nantes.addOutRoad(road15);
         Nimes.addInRoad(road15);
 
-        MediumRoad road16 = new MediumRoad(this.backPane);
+        Lane road16 = new Lane(this.backPane);
         Brest.addOutRoad(road16);
         Rabat.addInRoad(road16);
 
-        SmallRoad road17 = new SmallRoad(this.backPane);
+        Lane road17 = new Lane(this.backPane);
         Brest.addOutRoad(road17);
         Stop02.addInRoad(road17);
 
-        SmallRoad road18 = new SmallRoad(this.backPane);
+        Lane road18 = new Lane(this.backPane);
         Brest.addOutRoad(road18);
         Stop03.addInRoad(road18);
 
-        MediumRoad road19 = new MediumRoad(this.backPane);
+        Lane road19 = new Lane(this.backPane);
         Toulon.addOutRoad(road19);
         Nimes.addInRoad(road19);
 

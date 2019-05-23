@@ -1,8 +1,26 @@
 package sample.Road;
 
+import javafx.scene.layout.Pane;
+
 public class MediumRoad extends Road{
 
-    public MediumRoad() {
+    private int backgroundLineStrokeWidth = 15;
 
+    public MediumRoad(final Pane root) {
+        super(root);
+
+        this.backgroundLine.setStrokeWidth(this.backgroundLineStrokeWidth);
+
+        Lane lane01 = new Lane(this.root);
+        Lane lane02 = new Lane(this.root);
+
+        Lane lane03 = new Lane(this.root);
+        Lane lane04 = new Lane(this.root);
+
+        this.startToEndLanes.add(lane01);
+        this.startToEndLanes.add(lane02);
+
+        this.endToStartLanes.add(lane03);
+        this.endToStartLanes.add(lane04);
     }
 }

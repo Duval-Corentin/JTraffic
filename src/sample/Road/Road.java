@@ -9,14 +9,15 @@ import java.util.Vector;
 
 public class Road {
 
+
     private static final Color roadColor = Color.rgb(213, 213, 213);;
 
-    private Vector<Lane> startToEndLane;
-    private Vector<Lane> endToStartLane;
+    protected Vector<Lane> startToEndLanes;
+    protected Vector<Lane> endToStartLanes;
 
-    private Pane root;
+    protected Line backgroundLine;
+    protected Pane root;
 
-    private Line line;
 
     public Road() {
         
@@ -24,23 +25,30 @@ public class Road {
 
     public Road(final Pane root) {
 
-        this.line = new Line();
         this.root = root;
 
-        this.line.setStrokeWidth(20);
+        this.backgroundLine = new Line();
+        this.backgroundLine.setStroke(Color.LIGHTGRAY);
+        this.backgroundLine.setStrokeLineCap(StrokeLineCap.BUTT);
 
-        this.line.setStroke(this.roadColor);
-        this.line.setStrokeLineCap(StrokeLineCap.BUTT);
-        this.root.getChildren().add(line);
+        this.root.getChildren().add(backgroundLine);
     }
 
     public void setStart(double xStart, double yStart){
-        this.line.setStartX(xStart);
-        this.line.setStartY(yStart);
+        this.backgroundLine.setStartX(xStart);
+        this.backgroundLine.setStartY(yStart);
+
+        for(Lane lane : this.startToEndLanes){
+            lane.setStart(xStart + 3, yStart + 3);
+        }
     }
 
     public void setEnd(double xEnd, double yEnd){
-        this.line.setEndX(xEnd);
-        this.line.setEndY(yEnd);
+        this.backgroundLine.setEndX(xEnd);
+        this.backgroundLine.setEndY(yEnd);
+
+        for(Lane lane : this.endToStartLanes) {
+            lane.setEnd(xEnd - 3, yEnd - 3);
+        }
     }
 }

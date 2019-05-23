@@ -11,16 +11,17 @@ public class MediumRoad extends Road{
 
         this.backgroundLine.setStrokeWidth(this.backgroundLineStrokeWidth);
 
-        Lane lane01 = new Lane(this.root);
-        Lane lane02 = new Lane(this.root);
+        Lane lane01 = new Lane(this.root,7);
+        Lane lane02 = new Lane(this.root,7);
 
-        Lane lane03 = new Lane(this.root);
-        Lane lane04 = new Lane(this.root);
+        Lane lane03 = new Lane(this.root,7);
+        Lane lane04 = new Lane(this.root,7);
 
         this.startToEndLanes.add(lane01);
         this.startToEndLanes.add(lane02);
 
         this.endToStartLanes.add(lane03);
         this.endToStartLanes.add(lane04);
+
     }
 }

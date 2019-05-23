@@ -1,18 +1,28 @@
 package sample.Road;
 
+import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import sample.Car.Car;
+
+import java.util.LinkedList;
 
 public class Lane {
 
+
+    //graphic attributes
     private Pane root;
     private Line line;
+
+    //attributes relative to cars
+    private LinkedList<Car> garage;
+    private double stackingThreshold; //give the allowed distance between two cars.
 
     private double xStart, yStart, xEnd, yEnd;
 
 
-    public Lane(final Pane root) {
+    public Lane(final Pane root, double stackingThreshold) {
         this.root = root;
 
         this.line = new Line();
@@ -21,6 +31,10 @@ public class Lane {
         this.line.setStrokeWidth(1);
 
         this.root.getChildren().add(this.line);
+
+        //car stuff
+        this.garage = new LinkedList<>();
+        this.stackingThreshold = stackingThreshold;
     }
 
     public void setStart(double xStart, double yStart){
@@ -54,4 +68,31 @@ public class Lane {
     public double getyEnd() {
         return this.yEnd;
     }
+
+    //methods relative to cars
+
+    public void addCar(Car car){
+        this.garage.add(car);
+    }
+
+    public void update(double t){
+
+        for(int i = 0; i<garage.size(); i++) {
+            if(i + 1 < garage.size()){
+                Point2D c0 = garage.get(i).getPosition();
+                Point2D c1 = garage.get(i+1).getPosition();
+                double dist = c0.distance(c1);
+
+                if(dist<stackingThreshold && dist>0.0){
+                    garage.get(i+1).setCurrentSpeed(garage.get(i).getCurrentSpeed());
+                }
+
+
+
+            }
+            garage.get(i).graphicUpdate(t);
+        }
+    }
+
+    public int getCarAmount(){return garage.size();}
 }

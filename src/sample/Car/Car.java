@@ -39,8 +39,7 @@ public class Car {
     //constructors
 
 
-    public Car(int i,
-               double speedLimit,
+    public Car(double speedLimit,
                double currentSpeed,
                double minPosX,
                double minPosY,
@@ -54,13 +53,13 @@ public class Car {
         this.currentPosX = minPosX;
         this.currentPosY = minPosY;
         this.speedLimit = speedLimit;
-        this.currentSpeed = currentSpeed;
+        this.currentSpeed = 1;
         this.minPosX = minPosX;
         this.minPosY = minPosY;
         this.maxPosX = maxPosX;
         this.maxPosY = maxPosY;
         this.direction = (maxPosY - minPosY) / (maxPosX - minPosX);
-        this.indice = i;
+
 
         this.maxSpeed = maxSpeed;
         this.accel = accel;

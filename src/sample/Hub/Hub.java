@@ -2,6 +2,7 @@ package sample.Hub;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import sample.Road.Lane;
 import sample.Road.Road;
 
 import java.util.Vector;
@@ -14,7 +15,7 @@ public class Hub {
 
     protected Pane root;
 
-    private Vector<Road> roads = new Vector<>();
+    private Vector<Lane> roads = new Vector<>();
 
     public Hub(final Pane root, final double xPos, final double yPos) {
         this.root = root;
@@ -32,16 +33,16 @@ public class Hub {
         return this.yPos;
     }
 
-    public void addInRoad(final Road road) {
+    public void addInRoad(final Lane road) {
         road.setStart(this.getXPos(), this.getYPos());
         this.roads.add(road);
     }
 
-    public void removeRoad(final Road road) {
+    public void removeRoad(final Lane road) {
         this.roads.remove(road);
     }
 
-    public void addOutRoad(final Road road) {
+    public void addOutRoad(final Lane road) {
         road.setEnd(this.getXPos(), this.getYPos());
         this.roads.add(road);
     }

@@ -9,16 +9,17 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import sample.Hub.City.City;
 import sample.Car.Car;
-import sample.Hub.Crossing.Crossing;
+import sample.Hub.City.City;
 import sample.Hub.Crossing.RightPriority;
 import sample.Hub.Crossing.Stop;
+import sample.Hub.Hub;
+import sample.Road.BigRoad;
+import sample.Road.MediumRoad;
 import sample.Road.Road;
-
+import sample.Road.SmallRoad;
 
 import java.util.Vector;
-
 
 public class Main extends Application {
 
@@ -28,8 +29,7 @@ public class Main extends Application {
     private double t = 0.0;
     private double timeWarp = 0.1; // 100 millisec
 
-    private Vector<City> citys = new Vector<>();
-    private Vector<Crossing> crossings = new Vector<>();
+    private Vector<Hub> hubs = new Vector<>();
     private Vector<Road> roads = new Vector<>();
 
     @Override
@@ -56,104 +56,111 @@ public class Main extends Application {
         City Rabat = new City(this.frontPane, 1400, 150, "Rabat", Color.web("#e84118"));
         City Nimes = new City(this.frontPane, 1000, 750, "Nîmes", Color.web("#718093"));
 
-        this.citys.add(Lille);
-        this.citys.add(Toulon);
-        this.citys.add(Nantes);
-        this.citys.add(Brest);
-        this.citys.add(Marseille);
-        this.citys.add(Rabat);
-        this.citys.add(Nimes);
-
         RightPriority RP01 = new RightPriority(this.frontPane, 400, 400, Color.RED);
         Stop Stop01 = new Stop(this.frontPane, 800, 200, Color.RED);
         Stop Stop02 = new Stop(this.frontPane, 1200, 600, Color.RED);
         Stop Stop03 = new Stop(this.frontPane, 1100, 400, Color.RED);
 
-        this.crossings.add(RP01);
-        this.crossings.add(Stop01);
-        this.crossings.add(Stop02);
-        this.crossings.add(Stop03);
+        this.hubs.add(Lille);
+        this.hubs.add(Toulon);
+        this.hubs.add(Nantes);
+        this.hubs.add(Brest);
+        this.hubs.add(Marseille);
+        this.hubs.add(Rabat);
+        this.hubs.add(Nimes);
 
-        Road road01 = new Road(this.backPane);
+        this.hubs.add(RP01);
+        this.hubs.add(Stop01);
+        this.hubs.add(Stop02);
+        this.hubs.add(Stop03);
+
+        SmallRoad road01 = new SmallRoad(this.backPane);
         Toulon.addOutRoad(road01);
         Lille.addInRoad(road01);
 
-        Road road02 = new Road(this.backPane);
+        SmallRoad road02 = new SmallRoad(this.backPane);
         Nantes.addOutRoad(road02);
         Toulon.addInRoad(road02);
 
-        Road road03 = new Road(this.backPane);
+        SmallRoad road03 = new SmallRoad(this.backPane);
         RP01.addOutRoad(road03);
         Lille.addInRoad(road03);
 
-        Road road04 = new Road(this.backPane);
+        BigRoad road04 = new BigRoad(this.backPane);
         RP01.addOutRoad(road04);
         Nantes.addInRoad(road04);
 
-        Road road05 = new Road(this.backPane);
+        MediumRoad road05 = new MediumRoad(this.backPane);
         RP01.addOutRoad(road05);
         Toulon.addInRoad(road05);
 
-        Road road06 = new Road(this.backPane);
+        MediumRoad road06 = new MediumRoad(this.backPane);
         RP01.addOutRoad(road06);
         Stop01.addInRoad(road06);
 
-        Road road07 = new Road(this.backPane);
+        SmallRoad road07 = new SmallRoad(this.backPane);
         Nantes.addOutRoad(road07);
         Stop02.addInRoad(road07);
 
-        Road road08 = new Road(this.backPane);
+        BigRoad road08 = new BigRoad(this.backPane);
         Lille.addOutRoad(road08);
         Stop01.addInRoad(road08);
 
-        Road road09 = new Road(this.backPane);
+        MediumRoad road09 = new MediumRoad(this.backPane);
         Nantes.addOutRoad(road09);
         Stop01.addInRoad(road09);
 
-        Road road10 = new Road(this.backPane);
+        SmallRoad road10 = new SmallRoad(this.backPane);
         Stop01.addOutRoad(road10);
         Stop02.addInRoad(road10);
 
-        Road road11 = new Road(this.backPane);
+        SmallRoad road11 = new SmallRoad(this.backPane);
         Stop02.addOutRoad(road11);
         Stop03.addInRoad(road11);
 
-        Road road12 = new Road(this.backPane);
+        BigRoad road12 = new BigRoad(this.backPane);
         Stop02.addOutRoad(road12);
         Nimes.addInRoad(road12);
 
-        Road road13 = new Road(this.backPane);
+        BigRoad road13 = new BigRoad(this.backPane);
         Rabat.addOutRoad(road13);
         Stop03.addInRoad(road13);
 
-        Road road14 = new Road(this.backPane);
+        SmallRoad road14 = new SmallRoad(this.backPane);
         Stop03.addOutRoad(road14);
         Stop01.addInRoad(road14);
 
-        Road road15 = new Road(this.backPane);
+        MediumRoad road15 = new MediumRoad(this.backPane);
         Nantes.addOutRoad(road15);
         Nimes.addInRoad(road15);
 
-        Road road16 = new Road(this.backPane);
+        MediumRoad road16 = new MediumRoad(this.backPane);
         Brest.addOutRoad(road16);
         Rabat.addInRoad(road16);
 
-        Road road17 = new Road(this.backPane);
+        SmallRoad road17 = new SmallRoad(this.backPane);
         Brest.addOutRoad(road17);
         Stop02.addInRoad(road17);
 
-        Road road18 = new Road(this.backPane);
+        SmallRoad road18 = new SmallRoad(this.backPane);
         Brest.addOutRoad(road18);
         Stop03.addInRoad(road18);
 
-        Road road19 = new Road(this.backPane);
+        MediumRoad road19 = new MediumRoad(this.backPane);
         Toulon.addOutRoad(road19);
         Nimes.addInRoad(road19);
 
+        Car myCar01 = new Car(1, 10, 1, 100, 100, 1000, 500, 10, 1, 1, 0, this.frontPane);
+        Car myCar02 = new Car(1, 10, 1, 100, 100, 1000, 500, 10, 1, 1, 20, this.frontPane);
 
         AnimationTimer timer = new AnimationTimer() {
+
+            private double t = 0;
             @Override
             public void handle(long now) {
+                t += 0.1;
+                myCar01.graphicUpdate(t);
+                myCar02.graphicUpdate(t);
             }
         };
         timer.start();

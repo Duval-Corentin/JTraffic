@@ -11,13 +11,13 @@ public class BigRoad extends Road{
 
         this.backgroundLine.setStrokeWidth(this.backgroundLineStrokeWidth);
 
-        Lane lane01 = new Lane(this.root,5);
-        Lane lane02 = new Lane(this.root,5);
-        Lane lane03 = new Lane(this.root,5);
+        Lane lane01 = new Lane(this.root);
+        Lane lane02 = new Lane(this.root);
+        Lane lane03 = new Lane(this.root);
 
-        Lane lane04 = new Lane(this.root,5);
-        Lane lane05 = new Lane(this.root,5);
-        Lane lane06 = new Lane(this.root,5);
+        Lane lane04 = new Lane(this.root);
+        Lane lane05 = new Lane(this.root);
+        Lane lane06 = new Lane(this.root);
 
         this.startToEndLanes.add(lane01);
         this.startToEndLanes.add(lane02);

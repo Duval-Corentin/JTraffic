@@ -147,17 +147,34 @@ public class Main extends Application {
         Toulon.addOutRoad(road19);
         Nimes.addInRoad(road19);
 
-        Car myCar01 = new Car(1, 10, 1, 100, 100, 1000, 500, 10, 1, 1, 0, this.frontPane);
-        Car myCar02 = new Car(1, 10, 1, 100, 100, 1000, 500, 10, 1, 1, 20, this.frontPane);
+        for(int i = 0; i<20; i++){
+            road06.addCar((double)i*0.1,12.0,this.frontPane);
+        }
+        for(int i = 0; i<20; i++){
+            road01.addCar((double)i*0.1,12.0,this.frontPane);
+        }
+        for(int i = 0; i<20; i++){
+            road07.addCar((double)i*0.1,12.0,this.frontPane);
+        }
+
+        road13.addCar(0.0,12.0,this.frontPane);
+        road16.addCar(0.0,12.0,this.frontPane);
+
+        //Car toast  = new Car(1000.0,750.0,800.0,400.0,1.0,5.0,0.0,this.frontPane);
+
 
         AnimationTimer timer = new AnimationTimer() {
 
             private double t = 0;
             @Override
             public void handle(long now) {
-                t += 0.1;
-                myCar01.graphicUpdate(t);
-                myCar02.graphicUpdate(t);
+                t += 0.001;
+                road16.update(t);
+                road13.update(t);
+                road06.update(t);
+                road07.update(t);
+                road01.update(t);
+                //toast.graphicUpdate(t);
             }
         };
         timer.start();

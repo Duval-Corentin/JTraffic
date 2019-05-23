@@ -39,15 +39,12 @@ public class Car {
     //constructors
 
 
-    public Car(double speedLimit,
-               double currentSpeed,
-               double minPosX,
+    public Car(double minPosX,
                double minPosY,
                double maxPosX,
                double maxPosY,
+               double speedLimit,
                double maxSpeed,
-               double accel,
-               double deccel,
                double t0,
                Pane pane) {
         this.currentPosX = minPosX;
@@ -60,10 +57,11 @@ public class Car {
         this.maxPosY = maxPosY;
         this.direction = (maxPosY - minPosY) / (maxPosX - minPosX);
 
+        //System.out.println("("+this.minPosX+","+this.minPosY+")to("+this.maxPosX+","+this.maxPosY+")" + "dir : " + this.direction);
 
         this.maxSpeed = maxSpeed;
-        this.accel = accel;
-        this.deccel = deccel;
+        this.accel = 2;
+        this.deccel = 2;
         this.t0 = t0;
 
         this.hitBox = new Circle();
@@ -223,19 +221,11 @@ public class Car {
     }
 
 
-    private double smoother(double t){
-
-        double deccelTime = 50.0;
-        double result = (0.5)*( tanh((t/5.0)-3.0)+1.0 );
-        //System.out.println(t + " :: " + result);
-        return result;
-    }
-
 
     private double speed(double t){
 
         double accel = 0.01;
-        double deccel = 0.12;
+        double deccel = 0.0;
 
         if(this.getCarProgression()<0.90){
             if(this.getCurrentSpeed()+ accel< this.getMaxSpeed()){
@@ -249,20 +239,18 @@ public class Car {
     }
 
     private Point2D carPosition(double t){
-        double timeWarp = 0.1;
-        double coeff = this.getDirection();
+        double timeWarp = 0.001;
+        double a = this.getMinPosX();
+        double b = this.getMinPosY();
+        double c = this.getMaxPosX();
+        double d = this.getMaxPosY();
 
-        this.setCurrentSpeed(speed(t));
         if(t>0.0) {
-            if(signum(this.maxPosX - this.minPosX) >0 ){
-                this.setCurrentPos(this.getCurrentPosX() +  timeWarp * this.currentSpeed
-                        , this.getCurrentPosY() +  timeWarp * this.currentSpeed * coeff);
-            }else{
-                this.setCurrentPos(this.getCurrentPosX()
-                        , this.getCurrentPosY() + signum(this.maxPosY - this.minPosY) * timeWarp * this.currentSpeed * coeff);
-            }
-
+           this.setCurrentPos((1.0-t)*a+t*c,(1.0-t)*b+t*d);
         }
+
+
+        //System.out.println(this.getCurrentPosX()+","+this.getCurrentPosY());
         return new Point2D(this.getCurrentPosX(),this.getCurrentPosY());
     }
 

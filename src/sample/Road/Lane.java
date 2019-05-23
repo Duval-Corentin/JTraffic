@@ -17,12 +17,12 @@ public class Lane {
 
     //attributes relative to cars
     private LinkedList<Car> garage;
-    private double stackingThreshold; //give the allowed distance between two cars.
+    private static double stackingThreshold = 7.0; //give the allowed distance between two cars.
 
     private double xStart, yStart, xEnd, yEnd;
 
 
-    public Lane(final Pane root, double stackingThreshold) {
+    public Lane(final Pane root) {
         this.root = root;
 
         this.line = new Line();
@@ -34,7 +34,6 @@ public class Lane {
 
         //car stuff
         this.garage = new LinkedList<>();
-        this.stackingThreshold = stackingThreshold;
     }
 
     public void setStart(double xStart, double yStart){

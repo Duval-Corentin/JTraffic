@@ -15,6 +15,8 @@ public class Lane {
     public Lane(final Pane root) {
         this.root = root;
 
+        this.line = new Line();
+
         this.line.setStroke(Color.BLACK);
         this.line.setStrokeWidth(1);
 

@@ -7,23 +7,28 @@ import sample.Road.Road;
 
 import java.util.Vector;
 
-public class Hub {
+public abstract class Hub {
 
     protected Rectangle rect;
 
     private double xPos, yPos;
 
-    protected Pane root;
+    protected Pane root, carPane;
 
-    private Vector<Lane> roads = new Vector<>();
 
-    public Hub(final Pane root, final double xPos, final double yPos) {
+    protected Vector<Lane> inRoads = new Vector<>();
+    protected Vector<Lane> outRoads = new Vector<>();
+
+    public Hub(final Pane root, final Pane carPane, final double xPos, final double yPos) {
         this.root = root;
+        this.carPane = carPane;
         this.xPos = xPos;
         this.yPos = yPos;
 
         this.rect = new Rectangle();
     }
+
+    public abstract void update(double t);
 
     public double getXPos() {
         return this.xPos;
@@ -35,15 +40,16 @@ public class Hub {
 
     public void addInRoad(final Lane road) {
         road.setStart(this.getXPos(), this.getYPos());
-        this.roads.add(road);
+        this.inRoads.add(road);
     }
 
     public void removeRoad(final Lane road) {
-        this.roads.remove(road);
+        this.inRoads.remove(road);
+        this.outRoads.remove(road);
     }
 
     public void addOutRoad(final Lane road) {
         road.setEnd(this.getXPos(), this.getYPos());
-        this.roads.add(road);
+        this.outRoads.add(road);
     }
 }

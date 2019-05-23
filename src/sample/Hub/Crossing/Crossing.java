@@ -11,9 +11,9 @@ public abstract class Crossing extends Hub {
     private static double height = 20;
     private static double arcWidth = 5;
 
-    public Crossing(final Pane root, final double xPos, final double yPos, final Color color) {
+    public Crossing(final Pane root, final Pane carPane, final double xPos, final double yPos, final Color color) {
 
-        super(root, xPos, yPos);
+        super(root, carPane, xPos, yPos);
 
         this.rect.setX(xPos - width/2);
         this.rect.setY(yPos - height/2);

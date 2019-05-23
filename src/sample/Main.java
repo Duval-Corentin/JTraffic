@@ -45,18 +45,18 @@ public class Main extends Application {
         primaryStage.setScene( new Scene(this.rootPane));
         primaryStage.show();
 
-        City Lille = new City(this.frontPane, 100, 100, "Lille", Color.web("#00a8ff"));
-        City Toulon = new City(this.frontPane, 400, 800, "Toulon", Color.web("#e84118"));
-        City Nantes = new City(this.frontPane, 700, 400, "Nantes", Color.web("#fbc531"));
-        City Brest = new City(this.frontPane, 1500, 400, "Brest", Color.web("#4cd137"));
-        City Marseille = new City(this.frontPane, 1800, 200, "Marseille", Color.web("#487eb0"));
-        City Rabat = new City(this.frontPane, 1400, 150, "Rabat", Color.web("#e84118"));
-        City Nimes = new City(this.frontPane, 1000, 750, "Nîmes", Color.web("#718093"));
+        City Lille = new City(this.frontPane, this.backPane, 100, 100, "Lille", Color.web("#00a8ff"));
+        City Toulon = new City(this.frontPane, this.backPane, 400, 800, "Toulon", Color.web("#e84118"));
+        City Nantes = new City(this.frontPane, this.backPane, 700, 400, "Nantes", Color.web("#fbc531"));
+        City Brest = new City(this.frontPane,  this.backPane,1500, 400, "Brest", Color.web("#4cd137"));
+        City Marseille = new City(this.frontPane,  this.backPane,1800, 200, "Marseille", Color.web("#487eb0"));
+        City Rabat = new City(this.frontPane, this.backPane, 1400, 150, "Rabat", Color.web("#e84118"));
+        City Nimes = new City(this.frontPane, this.backPane, 1000, 750, "Nîmes", Color.web("#718093"));
 
-        RightPriority RP01 = new RightPriority(this.frontPane, 400, 400, Color.RED);
-        Stop Stop01 = new Stop(this.frontPane, 800, 200, Color.RED);
-        Stop Stop02 = new Stop(this.frontPane, 1200, 600, Color.RED);
-        Stop Stop03 = new Stop(this.frontPane, 1100, 400, Color.RED);
+        RightPriority RP01 = new RightPriority(this.frontPane, this.backPane, 400, 400, Color.RED);
+        RightPriority Stop01 = new RightPriority(this.frontPane, this.backPane, 800, 200, Color.RED);
+        RightPriority Stop02 = new RightPriority(this.frontPane, this.backPane, 1200, 600, Color.RED);
+        RightPriority Stop03 = new RightPriority(this.frontPane, this.backPane, 1100, 400, Color.RED);
 
         this.hubs.add(Lille);
         this.hubs.add(Toulon);
@@ -92,8 +92,8 @@ public class Main extends Application {
         Toulon.addInRoad(road05);
 
         Lane road06 = new Lane(this.backPane);
-        RP01.addOutRoad(road06);
-        Stop01.addInRoad(road06);
+        RP01.addInRoad(road06);
+        Stop01.addOutRoad(road06);
 
         Lane road07 = new Lane(this.backPane);
         Nantes.addOutRoad(road07);
@@ -147,19 +147,6 @@ public class Main extends Application {
         Toulon.addOutRoad(road19);
         Nimes.addInRoad(road19);
 
-        for(int i = 0; i<20; i++){
-            road06.addCar((double)i*0.1,12.0,this.frontPane);
-        }
-        for(int i = 0; i<20; i++){
-            road01.addCar((double)i*0.1,12.0,this.frontPane);
-        }
-        for(int i = 0; i<20; i++){
-            road07.addCar((double)i*0.1,12.0,this.frontPane);
-        }
-
-        road13.addCar(0.0,12.0,this.frontPane);
-        road16.addCar(0.0,12.0,this.frontPane);
-
         //Car toast  = new Car(1000.0,750.0,800.0,400.0,1.0,5.0,0.0,this.frontPane);
 
 
@@ -168,12 +155,11 @@ public class Main extends Application {
             private double t = 0;
             @Override
             public void handle(long now) {
-                t += 0.001;
-                road16.update(t);
-                road13.update(t);
-                road06.update(t);
-                road07.update(t);
-                road01.update(t);
+                t += 0.002;
+
+                for(Hub hub : hubs) {
+                    hub.update(t);
+                }
                 //toast.graphicUpdate(t);
             }
         };

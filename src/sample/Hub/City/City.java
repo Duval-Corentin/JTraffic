@@ -7,21 +7,23 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import sample.Hub.Hub;
-import javafx.scene.shape.*;
+import sample.Road.Lane;
 
 
 public class City extends Hub {
 
-    private static double width = 100;
-    private static double height = 50;
-    private static double fontSize = 15;
-    private static double arcWidth = 15;
+    private static final double width = 100;
+    private static final double height = 50;
+    private static final double fontSize = 15;
+    private static final double arcWidth = 15;
+
+    private double generationCoeff = 0.01;
 
     private Text nameText;
 
-    public City(final Pane root, final double xPos, final double yPos, final String name, final Color color) {
+    public City(final Pane root, final Pane carPane, final double xPos, final double yPos, final String name, final Color color) {
 
-        super(root, xPos, yPos);
+        super(root, carPane, xPos, yPos);
 
         this.rect.setX(xPos - width/2);
         this.rect.setY(yPos - height/2);
@@ -43,5 +45,28 @@ public class City extends Hub {
         this.root.getChildren().add(this.rect);
         this.root.getChildren().add(this.nameText);
 
+    }
+
+    public void update(double t) {
+        if(Math.random() < generationCoeff){
+            if(this.inRoads.size() != 0){
+                Lane selectedLane = this.inRoads.get((int) (Math.random() * this.inRoads.size()));
+
+                if(selectedLane.getCars().size() > 0) {
+
+                    if(selectedLane.getCars().getLast().getAchievedLenght() > selectedLane.getStackingThreshold()){
+                        selectedLane.addCar(t, 12, this.carPane);
+
+                    }
+                } else {
+                    selectedLane.addCar(t, 12, this.carPane);
+                }
+            }
+
+        }
+
+        for(Lane lane : this.inRoads) {
+            lane.update(t);
+        }
     }
 }

@@ -31,6 +31,8 @@ public class Car {
 
     //graphics
 
+    private Pane pane;
+
     private Circle carDot;
     private Circle hitBox;
     private static GraphicsContext carsPane;
@@ -63,18 +65,17 @@ public class Car {
         this.accel = 2;
         this.deccel = 2;
         this.t0 = t0;
-
-        this.hitBox = new Circle();
-        this.hitBox.setFill(Color.WHITE);
-        this.hitBox.setRadius(1);
-        this.hitBox.setCache(true);
-        pane.getChildren().add(this.hitBox);
+        this.pane = pane;
 
         this.carDot = new Circle();
         this.carDot.setFill(Color.BLUE);
         this.carDot.setRadius(5);
         this.carDot.setCache(true);
-        pane.getChildren().add(this.carDot);
+        this.pane.getChildren().add(this.carDot);
+    }
+
+    public void removeCar() {
+        this.pane.getChildren().remove(this.carDot);
     }
 
     //setters
@@ -215,9 +216,6 @@ public class Car {
         if(t<0){t=0;}
         carDot.setLayoutX(carPosition(t).getX());
         carDot.setLayoutY(carPosition(t).getY());
-
-        hitBox.setLayoutX(carPosition(t).getX());
-        hitBox.setLayoutY(carPosition(t).getY());
     }
 
 
@@ -248,9 +246,6 @@ public class Car {
         if(t>0.0) {
            this.setCurrentPos((1.0-t)*a+t*c,(1.0-t)*b+t*d);
         }
-
-
-        //System.out.println(this.getCurrentPosX()+","+this.getCurrentPosY());
         return new Point2D(this.getCurrentPosX(),this.getCurrentPosY());
     }
 

@@ -17,7 +17,7 @@ public class Lane {
 
     //attributes relative to cars
     private LinkedList<Car> garage;
-    private static double stackingThreshold = 10.0; //give the allowed distance between two cars.
+    private static final double stackingThreshold = 15.0; //give the allowed distance between two cars.
 
 
     //lane attributes
@@ -53,6 +53,14 @@ public class Lane {
 
         this.line.setEndX(xEnd);
         this.line.setEndY(yEnd);
+    }
+
+    public LinkedList<Car> getCars() {
+        return this.garage;
+    }
+
+    public double getStackingThreshold() {
+        return this.stackingThreshold;
     }
 
     public double getXStart() {
@@ -98,4 +106,12 @@ public class Lane {
     }
 
     public int getCarAmount(){return garage.size();}
+
+    public void clearArrivedCars() {
+        for(Car car : this.garage) {
+            if(car.getAchievedLenght() >= car.getPathLenght() - 1) {
+                car.removeCar();
+            }
+        }
+    }
 }

@@ -55,7 +55,7 @@ public class City extends Hub {
                 if(selectedLane.getCars().size() > 0) {
 
                     if(selectedLane.getCars().getLast().getAchievedLenght() > selectedLane.getStackingThreshold()){
-                        selectedLane.addCar(t, 12, this.carPane);
+                        selectedLane.addCar(t, Math.random() * (30 - 5), this.carPane);
 
                     }
                 } else {
@@ -67,6 +67,12 @@ public class City extends Hub {
 
         for(Lane lane : this.inRoads) {
             lane.update(t);
+        }
+
+        for(Lane lane : this.outRoads) {
+            if(lane.getCars().size() > 0 && lane.getCars().getFirst().getCarProgression() > 0.99) {
+                lane.getCars().pop().removeCar();
+            }
         }
     }
 }

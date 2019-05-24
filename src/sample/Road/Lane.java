@@ -114,4 +114,13 @@ public class Lane {
             }
         }
     }
+
+    public double getLastEnteredCarProgression(){
+        if(this.garage.size() == 0){
+            return 1.0;
+        }else{
+            return this.garage.getLast().getCarProgression();
+        }
+
+    }
 }

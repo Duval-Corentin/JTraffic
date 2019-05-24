@@ -17,7 +17,7 @@ public class City extends Hub {
     private static final double fontSize = 15;
     private static final double arcWidth = 15;
 
-    private double generationCoeff = 0.01;
+    private double generationCoeff = 0.03;
 
     private Text nameText;
 

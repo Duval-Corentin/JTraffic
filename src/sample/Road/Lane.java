@@ -88,6 +88,10 @@ public class Lane {
 
     public void update(double t){
 
+        if(garage.size() > 0 && garage.getFirst().getCurrentSpeed() == 0 && garage.getFirst().getCarProgression() < 0.95){
+            garage.getFirst().setCurrentSpeed(1);
+        }
+
         for(int i = 0; i<garage.size(); i++) {
             if(i + 1 < garage.size()){
                 Point2D c0 = garage.get(i).getPosition();

@@ -88,8 +88,8 @@ public class Main extends Application {
         Nantes.addInRoad(road04);
 
         Lane road05 = new Lane(this.backPane);
-        RP01.addOutRoad(road05);
-        Toulon.addInRoad(road05);
+        RP01.addInRoad(road05);
+        Toulon.addOutRoad(road05);
 
         Lane road06 = new Lane(this.backPane);
         RP01.addInRoad(road06);
@@ -120,8 +120,8 @@ public class Main extends Application {
         Nimes.addInRoad(road12);
 
         Lane road13 = new Lane(this.backPane);
-        Rabat.addOutRoad(road13);
-        Stop03.addInRoad(road13);
+        Rabat.addInRoad(road13);
+        Stop03.addOutRoad(road13);
 
         Lane road14 = new Lane(this.backPane);
         Stop03.addOutRoad(road14);

@@ -12,17 +12,17 @@ public class RightPriority extends Crossing {
 
     public void update(double t) {
         for (Lane line : this.outRoads) {
-            //System.out.println(line);
             if (line.getCars().size() > 0) {
-                if (line.getCars().getFirst().getCarProgression() > 0.99) {
+                if (line.getCars().getFirst().getCarProgression() > 0.95) {
 
 
                     if (this.inRoads.size() > 0) {
-                        int randLane = (int) Math.random() * this.outRoads.size();
 
-                        if (this.inRoads.get(randLane).getLastEnteredCarProgression() > 0.05) {
+                        Lane randLane = this.inRoads.get( (int) (Math.random() * this.inRoads.size() ) );
+
+                        if (randLane.getLastEnteredCarProgression() > 0.15){
                             line.getCars().pop().removeCar();
-                            this.inRoads.get(randLane).addCar(t, 12, this.carPane);
+                            randLane.addCar(t, 12, this.carPane);
                         }
 
 
@@ -30,6 +30,10 @@ public class RightPriority extends Crossing {
 
                 }
             }
+        }
+
+        for(Lane line : this.inRoads) {
+            line.update(t);
         }
     }
 }
